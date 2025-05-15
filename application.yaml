@@ -10,7 +10,7 @@ spec:
     targetRevision: HEAD
     path: prod
   destination:
-    server: https://181.214.142.155:6443
+    server: https://181.214.142.154:6443
     namespace: yahoo
   syncPolicy:
     automated:
