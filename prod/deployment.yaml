@@ -30,7 +30,7 @@ spec:
       volumes:
         - name: profiles
           hostPath:
-            path: /mnt/profiles  # Or use a PVC if available
+            path: /home/alsontech/yahoo/profiles
         - name: refresh
           hostPath:
-            path: /mnt/refresh.txt
+            path: /home/alsontech/yahoo/refresh.txt
