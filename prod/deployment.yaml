@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yahoo-selenium
+  labels:
+    app: yahoo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yahoo
+  template:
+    metadata:
+      labels:
+        app: yahoo
+    spec:
+      containers:
+      - name: yahoo-selenium
+        image: exactmind.net/alsonmedia/yahoo-selenium:latest
+        volumeMounts:
+          - mountPath: /home/alsontech/yahoo/profiles
+            name: profiles
+          - mountPath: /home/alsontech/yahoo/refresh.txt
+            name: refresh
+        ports:
+          - containerPort: 8080
+        securityContext:
+          capabilities:
+            add: ["SYS_ADMIN"]
+      volumes:
+        - name: profiles
+          hostPath:
+            path: /mnt/profiles  # Or use a PVC if available
+        - name: refresh
+          hostPath:
+            path: /mnt/refresh.txt
