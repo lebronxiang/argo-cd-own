@@ -27,6 +27,8 @@ spec:
         securityContext:
           capabilities:
             add: ["SYS_ADMIN"]
+      imagePullSecrets:
+        - name: regcred
       volumes:
         - name: profiles
           hostPath:
